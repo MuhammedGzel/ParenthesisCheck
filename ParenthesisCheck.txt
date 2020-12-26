@@ -1,0 +1,92 @@
+
+public class Stack2 {
+       private int maxsize;
+    private char[] stackArray;
+    private int top;
+    
+     public Stack2(int max){
+        maxsize=max;
+        stackArray=new char[maxsize];
+        top=-1;
+        
+    }
+    public void push(char c){
+        stackArray[++top]=c;
+        
+    }
+    public int pop(){
+       return stackArray[top--];
+     
+    }
+    public boolean isEmpty(){
+        
+        return top==-1;
+    }
+    public int peek(){
+        return stackArray[top];
+    }
+     public void PrintStack(){
+        if(top!=-1){
+            for (int i = 0; i<=top; i++) {
+                System.out.println(stackArray[top-i]);
+                
+            }
+        }
+     }
+     
+public void ParenthesisCheck(String expr){
+    char[] chararray=expr.toCharArray();
+    char chRead;
+    char chPeeked;
+   
+
+   Stack2 y=new Stack2(chararray.length);
+       for (int i = 0; i <chararray.length; i++) {
+         
+   
+        chRead=chararray[i];
+       
+        
+     if(chRead=='('||chRead=='['||chRead=='{'){
+         y.push(chRead);
+     }
+     if(chRead==')'||chRead==']'||chRead=='}'){
+        
+          if(y.isEmpty()){
+             y.push(chRead);
+          }
+         
+        
+           if(!y.isEmpty()){  
+            chPeeked=(char)y.peek();
+           if(chPeeked=='('&&chRead==')'){
+                 y.pop();
+             }
+          if(chPeeked=='['&&chRead==']'){
+                  y.pop();
+             }
+          if(chPeeked=='{'&&chRead=='}'){
+                  y.pop();
+             }
+       
+        
+     }
+          
+        
+    }
+      
+    
+      
+      
+
+}
+ if(y.isEmpty()){
+           System.out.println("No unclosed brackets");
+           
+       }
+       else{
+           System.out.println("There is at least one unclosed bracket");
+        
+       }
+}
+}
