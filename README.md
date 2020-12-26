@@ -1,0 +1,2 @@
+# ParenthesisCheck
+it transfers the received string to the stack by converting it to an array of characters and is controlled by the for loop until it reaches the array size, increasing the value of the variable belonging to that parenthesis type for each parenthesis type. when the control process is complete, it is checked whether the number of opened brackets for each type of parenthesis is equal to the number of closed brackets.
